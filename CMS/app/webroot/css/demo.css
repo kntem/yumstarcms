@@ -1,0 +1,56 @@
+@import url(http://fonts.googleapis.com/css?family=Antic|Love+Ya+Like+A+Sister);
+
+#pageCode {
+	text-align: left;
+	width: 800px;
+	margin: auto;
+	height: 300px;
+	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border: 1px solid #e0e0e0;
+	display: none;
+}
+
+#pageCode::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+#pageCode::-webkit-scrollbar-button:start:decrement,
+#pageCode::-webkit-scrollbar-button:end:increment {
+    display: block;
+    height: 10px;
+}
+
+#pageCode::-webkit-scrollbar-button:vertical:increment {
+    background-color: #fff;
+}
+
+#pageCode::-webkit-scrollbar-track-piece {
+    background-color: #e4e4e4;
+    -webkit-border-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.12);
+}
+
+#pageCode::-webkit-scrollbar-thumb:vertical {
+    height: 50px;
+    background-color: #aaa;
+    -webkit-border-radius: 3px;
+}
+
+#pageCode::-webkit-scrollbar-thumb:horizontal {
+    width: 50px;
+    background-color: #aaa;
+    -webkit-border-radius: 3px;
+}
+
+#pageCode ol {
+	background: #eaeaea;
+}
+
+#pageCode ol li {
+	margin-left: 40px;
+	background: #fcfcfc;
+}
+

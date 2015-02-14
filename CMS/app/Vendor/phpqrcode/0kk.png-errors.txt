@@ -1,0 +1,292 @@
+2014-12-02 05:08:29: <pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d298d6-trace').style.display = (document.getElementById('cakeErr547d8f9d298d6-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: strlen() expects parameter 1 to be string, array given [<b>APP\Vendor\phpqrcode\qrsplit.php</b>, line <b>250</b>]<div id="cakeErr547d8f9d298d6-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d298d6-code').style.display = (document.getElementById('cakeErr547d8f9d298d6-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d298d6-context').style.display = (document.getElementById('cakeErr547d8f9d298d6-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d8f9d298d6-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">splitString</span><span style="color: #007700">()</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{</span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">while&nbsp;(</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">dataStr</span><span style="color: #007700">)&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)</span></span></code></span></pre><pre class="stack-trace">strlen - [internal], line ??
+QRsplit::splitString() - APP\Vendor\phpqrcode\qrsplit.php, line 250
+QRsplit::splitStringToQRinput() - APP\Vendor\phpqrcode\qrsplit.php, line 309
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 274
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 59
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 954
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 108</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2aa8f-trace').style.display = (document.getElementById('cakeErr547d8f9d2aa8f-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>522</b>]<div id="cakeErr547d8f9d2aa8f-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2aa8f-code').style.display = (document.getElementById('cakeErr547d8f9d2aa8f-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2aa8f-context').style.display = (document.getElementById('cakeErr547d8f9d2aa8f-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d8f9d2aa8f-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bits&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB"></span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d8f9d2aa8f-context" class="cake-context" style="display: none;">$version = (int) 0
+$bits = (int) 0</pre><pre class="stack-trace">QRinput::estimateBitStreamSize() - APP\Vendor\phpqrcode\qrinput.php, line 522
+QRinput::estimateVersion() - APP\Vendor\phpqrcode\qrinput.php, line 536
+QRinput::convertData() - APP\Vendor\phpqrcode\qrinput.php, line 609
+QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 682
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 59
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2bce3-trace').style.display = (document.getElementById('cakeErr547d8f9d2bce3-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>522</b>]<div id="cakeErr547d8f9d2bce3-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2bce3-code').style.display = (document.getElementById('cakeErr547d8f9d2bce3-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2bce3-context').style.display = (document.getElementById('cakeErr547d8f9d2bce3-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d8f9d2bce3-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bits&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB"></span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d8f9d2bce3-context" class="cake-context" style="display: none;">$version = (int) 1
+$bits = (int) 0</pre><pre class="stack-trace">QRinput::estimateBitStreamSize() - APP\Vendor\phpqrcode\qrinput.php, line 522
+QRinput::estimateVersion() - APP\Vendor\phpqrcode\qrinput.php, line 536
+QRinput::convertData() - APP\Vendor\phpqrcode\qrinput.php, line 609
+QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 682
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 59
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2cec3-trace').style.display = (document.getElementById('cakeErr547d8f9d2cec3-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>594</b>]<div id="cakeErr547d8f9d2cec3-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2cec3-code').style.display = (document.getElementById('cakeErr547d8f9d2cec3-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2cec3-context').style.display = (document.getElementById('cakeErr547d8f9d2cec3-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d8f9d2cec3-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$total&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB"></span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d8f9d2cec3-context" class="cake-context" style="display: none;">$total = (int) 0</pre><pre class="stack-trace">QRinput::createBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 594
+QRinput::convertData() - APP\Vendor\phpqrcode\qrinput.php, line 615
+QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 682
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 59
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 954</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2e9d7-trace').style.display = (document.getElementById('cakeErr547d8f9d2e9d7-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>688</b>]<div id="cakeErr547d8f9d2e9d7-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2e9d7-code').style.display = (document.getElementById('cakeErr547d8f9d2e9d7-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d8f9d2e9d7-context').style.display = (document.getElementById('cakeErr547d8f9d2e9d7-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d8f9d2e9d7-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bstream&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">QRbitstream</span><span style="color: #007700">();</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d8f9d2e9d7-context" class="cake-context" style="display: none;">$bstream = object(QRbitstream) {
+	data =&gt; array()
+}</pre><pre class="stack-trace">QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 688
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 59
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 954
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165</pre></div></pre>2014-12-02 05:10:30: <pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016ccaaa-trace').style.display = (document.getElementById('cakeErr547d9016ccaaa-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: strlen() expects parameter 1 to be string, array given [<b>APP\Vendor\phpqrcode\qrsplit.php</b>, line <b>250</b>]<div id="cakeErr547d9016ccaaa-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016ccaaa-code').style.display = (document.getElementById('cakeErr547d9016ccaaa-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016ccaaa-context').style.display = (document.getElementById('cakeErr547d9016ccaaa-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d9016ccaaa-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">splitString</span><span style="color: #007700">()</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{</span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">while&nbsp;(</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">dataStr</span><span style="color: #007700">)&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)</span></span></code></span></pre><pre class="stack-trace">strlen - [internal], line ??
+QRsplit::splitString() - APP\Vendor\phpqrcode\qrsplit.php, line 250
+QRsplit::splitStringToQRinput() - APP\Vendor\phpqrcode\qrsplit.php, line 309
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 274
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 59
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 954
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 108</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016cdd35-trace').style.display = (document.getElementById('cakeErr547d9016cdd35-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>522</b>]<div id="cakeErr547d9016cdd35-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016cdd35-code').style.display = (document.getElementById('cakeErr547d9016cdd35-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016cdd35-context').style.display = (document.getElementById('cakeErr547d9016cdd35-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d9016cdd35-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bits&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB"></span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d9016cdd35-context" class="cake-context" style="display: none;">$version = (int) 0
+$bits = (int) 0</pre><pre class="stack-trace">QRinput::estimateBitStreamSize() - APP\Vendor\phpqrcode\qrinput.php, line 522
+QRinput::estimateVersion() - APP\Vendor\phpqrcode\qrinput.php, line 536
+QRinput::convertData() - APP\Vendor\phpqrcode\qrinput.php, line 609
+QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 682
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 59
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016cf056-trace').style.display = (document.getElementById('cakeErr547d9016cf056-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>522</b>]<div id="cakeErr547d9016cf056-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016cf056-code').style.display = (document.getElementById('cakeErr547d9016cf056-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016cf056-context').style.display = (document.getElementById('cakeErr547d9016cf056-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d9016cf056-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bits&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB"></span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d9016cf056-context" class="cake-context" style="display: none;">$version = (int) 1
+$bits = (int) 0</pre><pre class="stack-trace">QRinput::estimateBitStreamSize() - APP\Vendor\phpqrcode\qrinput.php, line 522
+QRinput::estimateVersion() - APP\Vendor\phpqrcode\qrinput.php, line 536
+QRinput::convertData() - APP\Vendor\phpqrcode\qrinput.php, line 609
+QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 682
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 59
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016d03b6-trace').style.display = (document.getElementById('cakeErr547d9016d03b6-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>594</b>]<div id="cakeErr547d9016d03b6-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016d03b6-code').style.display = (document.getElementById('cakeErr547d9016d03b6-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016d03b6-context').style.display = (document.getElementById('cakeErr547d9016d03b6-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d9016d03b6-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$total&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB"></span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d9016d03b6-context" class="cake-context" style="display: none;">$total = (int) 0</pre><pre class="stack-trace">QRinput::createBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 594
+QRinput::convertData() - APP\Vendor\phpqrcode\qrinput.php, line 615
+QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 682
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 59
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 954</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016d1b69-trace').style.display = (document.getElementById('cakeErr547d9016d1b69-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>688</b>]<div id="cakeErr547d9016d1b69-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016d1b69-code').style.display = (document.getElementById('cakeErr547d9016d1b69-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d9016d1b69-context').style.display = (document.getElementById('cakeErr547d9016d1b69-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d9016d1b69-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bstream&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">QRbitstream</span><span style="color: #007700">();</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d9016d1b69-context" class="cake-context" style="display: none;">$bstream = object(QRbitstream) {
+	data =&gt; array()
+}</pre><pre class="stack-trace">QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 688
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 59
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 954
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165</pre></div></pre>2014-12-02 05:11:24: <pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c216b1-trace').style.display = (document.getElementById('cakeErr547d904c216b1-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: strlen() expects parameter 1 to be string, array given [<b>APP\Vendor\phpqrcode\qrsplit.php</b>, line <b>250</b>]<div id="cakeErr547d904c216b1-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c216b1-code').style.display = (document.getElementById('cakeErr547d904c216b1-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c216b1-context').style.display = (document.getElementById('cakeErr547d904c216b1-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d904c216b1-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">splitString</span><span style="color: #007700">()</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">{</span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">while&nbsp;(</span><span style="color: #0000BB">strlen</span><span style="color: #007700">(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">dataStr</span><span style="color: #007700">)&nbsp;&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)</span></span></code></span></pre><pre class="stack-trace">strlen - [internal], line ??
+QRsplit::splitString() - APP\Vendor\phpqrcode\qrsplit.php, line 250
+QRsplit::splitStringToQRinput() - APP\Vendor\phpqrcode\qrsplit.php, line 309
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 274
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 60
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 954
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 108</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c229e3-trace').style.display = (document.getElementById('cakeErr547d904c229e3-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>522</b>]<div id="cakeErr547d904c229e3-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c229e3-code').style.display = (document.getElementById('cakeErr547d904c229e3-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c229e3-context').style.display = (document.getElementById('cakeErr547d904c229e3-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d904c229e3-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bits&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB"></span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d904c229e3-context" class="cake-context" style="display: none;">$version = (int) 0
+$bits = (int) 0</pre><pre class="stack-trace">QRinput::estimateBitStreamSize() - APP\Vendor\phpqrcode\qrinput.php, line 522
+QRinput::estimateVersion() - APP\Vendor\phpqrcode\qrinput.php, line 536
+QRinput::convertData() - APP\Vendor\phpqrcode\qrinput.php, line 609
+QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 682
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 60
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c23d47-trace').style.display = (document.getElementById('cakeErr547d904c23d47-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>522</b>]<div id="cakeErr547d904c23d47-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c23d47-code').style.display = (document.getElementById('cakeErr547d904c23d47-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c23d47-context').style.display = (document.getElementById('cakeErr547d904c23d47-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d904c23d47-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bits&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB"></span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d904c23d47-context" class="cake-context" style="display: none;">$version = (int) 1
+$bits = (int) 0</pre><pre class="stack-trace">QRinput::estimateBitStreamSize() - APP\Vendor\phpqrcode\qrinput.php, line 522
+QRinput::estimateVersion() - APP\Vendor\phpqrcode\qrinput.php, line 536
+QRinput::convertData() - APP\Vendor\phpqrcode\qrinput.php, line 609
+QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 682
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 60
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c24ff1-trace').style.display = (document.getElementById('cakeErr547d904c24ff1-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>594</b>]<div id="cakeErr547d904c24ff1-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c24ff1-code').style.display = (document.getElementById('cakeErr547d904c24ff1-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c24ff1-context').style.display = (document.getElementById('cakeErr547d904c24ff1-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d904c24ff1-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$total&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB"></span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d904c24ff1-context" class="cake-context" style="display: none;">$total = (int) 0</pre><pre class="stack-trace">QRinput::createBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 594
+QRinput::convertData() - APP\Vendor\phpqrcode\qrinput.php, line 615
+QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 682
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 60
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 954</pre></div></pre><pre class="cake-error"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c2690b-trace').style.display = (document.getElementById('cakeErr547d904c2690b-trace').style.display == 'none' ? '' : 'none');"><b>Warning</b> (2)</a>: Invalid argument supplied for foreach() [<b>APP\Vendor\phpqrcode\qrinput.php</b>, line <b>688</b>]<div id="cakeErr547d904c2690b-trace" class="cake-stack-trace" style="display: none;"><a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c2690b-code').style.display = (document.getElementById('cakeErr547d904c2690b-code').style.display == 'none' ? '' : 'none')">Code</a> <a href="javascript:void(0);" onclick="document.getElementById('cakeErr547d904c2690b-context').style.display = (document.getElementById('cakeErr547d904c2690b-context').style.display == 'none' ? '' : 'none')">Context</a><pre id="cakeErr547d904c2690b-code" class="cake-code-dump" style="display: none;"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bstream&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">QRbitstream</span><span style="color: #007700">();</span></span></code>
+<code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></code>
+<span class="code-highlight"><code><span style="color: #000000"><span style="color: #0000BB">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">foreach(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">items&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">)&nbsp;{</span></span></code></span></pre><pre id="cakeErr547d904c2690b-context" class="cake-context" style="display: none;">$bstream = object(QRbitstream) {
+	data =&gt; array()
+}</pre><pre class="stack-trace">QRinput::mergeBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 688
+QRinput::getBitStream() - APP\Vendor\phpqrcode\qrinput.php, line 702
+QRinput::getByteStream() - APP\Vendor\phpqrcode\qrinput.php, line 719
+QRrawcode::__construct() - APP\Vendor\phpqrcode\qrencode.php, line 63
+QRcode::encodeMask() - APP\Vendor\phpqrcode\qrencode.php, line 172
+QRcode::encodeInput() - APP\Vendor\phpqrcode\qrencode.php, line 240
+QRcode::encodeString() - APP\Vendor\phpqrcode\qrencode.php, line 279
+QRencode::encode() - APP\Vendor\phpqrcode\qrencode.php, line 486
+QRencode::encodePNG() - APP\Vendor\phpqrcode\qrencode.php, line 504
+QRcode::png() - APP\Vendor\phpqrcode\qrencode.php, line 286
+QrCodeHelper::text() - APP\View\Helper\QrCodeHelper.php, line 60
+include - APP\View\Qrcodes\view.ctp, line 3
+View::_evaluate() - CORE\Cake\View\View.php, line 948
+View::_render() - CORE\Cake\View\View.php, line 910
+View::render() - CORE\Cake\View\View.php, line 471
+Controller::render() - CORE\Cake\Controller\Controller.php, line 954
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165</pre></div></pre>
