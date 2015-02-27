@@ -20,7 +20,6 @@
 ?>
 
 <div id="container">
-    <?php echo $this->Session->flash(); ?>
 <?php echo $this->Form->create('User', array('action' => 'login')); ?>
 <div class="all-wrapper no-menu-wrapper light-bg">
   <div class="login-logo-w">
@@ -33,11 +32,13 @@
 
       <div class="widget widget-blue">
         <div class="widget-title">
-          <h3 class="text-center"><i class="icon-lock"></i> Login Example</h3>
+          <h3 class="text-center"><i class="icon-lock"></i> Login </h3>
+
         </div>
         <div class="widget-content">
+            <?php echo $this->Session->flash(); ?>
+
           <form action="#" role="form">
-            
               <div class="lined-separator"> login using email</div>
             <div class="form-group relative-w">
                 <?php echo $this->Form->input("email" ,array('label' => false,'div' => false,'class'=>"form-control" ))?>
@@ -50,20 +51,16 @@
               <i class="icon-lock input-abs-icon"></i>
             </div>
                <div class="form-group relative-w">
-             <?php      $options = array(
-    array('name' => 'Admin', 'value' => '1'),
-    array('name' => 'Buisness Owner', 'value' => '4'),
-                 array('name' => 'Barristas/Cooks', 'value' => '5'),
-             );
- 
-// echo $this->Form->input('test', array('type'=>'select', 'options'=>$options));?>
-                <?php  
-                echo $this->Form->input('user_type', array(
-    'type' => 'select', 
-    'options' => $options,
-    'class' => 'form-control',
-    'label'=>FALSE
-));?>
+            <?php
+                $options = array( array('name' => 'Admin', 'value' => '1'),
+                                array('name' => 'Buisness Owner', 'value' => '4'),
+                                array('name' => 'Barristas/Cooks', 'value' => '5'),
+                                 );
+                echo $this->Form->input('user_type', array( 'type' => 'select',
+                                                            'options' => $options,
+                                                            'class' => 'form-control',
+                                                            'label'=>FALSE));
+            ?>
                  <?php //  echo $this->Form->select('field', array("Admin","Buisness Owner","Bar/cuisine Owner","class"=>"form-control")); ?>
                 <?php // echo $this->Form->input("password" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"form-control" ))?>
               <!--<input type="password" class="form-control" placeholder="Password">-->
@@ -76,7 +73,7 @@
                 </label>
               </div>
             </div>
-<!--              
+<!--
             <a href="index.html" class="btn btn-primary btn-rounded btn-iconed">
               <span>Log me in</span>-->
               <?php echo $this->Form->Submit(__('Log me in'),array('class'=>'btn btn-primary btn-rounded btn-iconed icon-arrow-right'));?>
