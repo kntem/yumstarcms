@@ -24,7 +24,7 @@
                 });
             }
         });
-        //bulk delete ticket.        
+        //bulk delete ticket.
         $("#restaurant_delete").click(function() {
             //get ticket ids from checked checkbox's id.
             var restaurant_ids = jQuery('input.restaurant_checkboxs:checkbox:checked').map(function() {
@@ -46,7 +46,7 @@
 //                    alert(jQuery('#SITE_URL').val());
 
 
-                    $.ajax({//fetch the article via ajax            
+                    $.ajax({//fetch the article via ajax
                         type: "POST",
                         url: 'restaurants/restaurant_builk_delete', //calling this page
                         data: "restaurant_ids=" + restaurant_ids,
@@ -57,8 +57,8 @@
                             var response = $.parseJSON(html);
                             if (response.is_deleted == 1) {
                                 jQuery('input.restaurant_checkboxs:checkbox:checked').parents("tr").remove();
-var rowCount = $('#restaurant_list tr').length;                              
-                               if(rowCount == 1){                                
+var rowCount = $('#restaurant_list tr').length;
+                               if(rowCount == 1){
                               $('#restaurant_list > tbody:last').append('<tr><td colspan="9" class="fc-header-center">No Data found</td></tr>');
                                }
                             }
@@ -91,7 +91,7 @@ var rowCount = $('#restaurant_list tr').length;
 //    $qid=$this->request->query['qid'];
 //   $codeContents  = 'Restaurant_id:'.$qid."\n";
 //    $codeContents .= 'table_id:1';
-//  
+//
 //$this->QrCode->id_qr($codeContents,$qid); } 
 ?>
 
@@ -100,7 +100,7 @@ var rowCount = $('#restaurant_list tr').length;
 <?php echo $this->Form->create('Search', array('class' => 'form-inline', 'id' => 'restaurant_search')); ?>
     <div class="row">
         <div class="col-xs-7 col-md-6">
-            <div class="form-group col-xs-9">                               
+            <div class="form-group col-xs-9">
             <?php echo $this->Form->input('Search.name', array('type' => 'text', 'class' => 'form-control', 'label' => false, 'placeholder' => 'Restaurant Name')); ?>    
             </div>
             <?php echo $this->Form->button('Search', array('type' => 'submit', 'class' => 'btn btn-success', 'id' => 'search')); ?>
@@ -113,7 +113,7 @@ var rowCount = $('#restaurant_list tr').length;
             }
             echo $this->Form->end();
             ?>
-        </div>  
+        </div>
 
         <div class="col-xs-5 col-md-6 text-right">
 <?php echo $this->Html->link('Add New', '/restaurants/add', array('class' => 'btn btn-primary')); ?>      
@@ -124,25 +124,23 @@ var rowCount = $('#restaurant_list tr').length;
 </div>
 <div class="widget widget-blue">
     <div class="widget-title">
-
         <h3><i class="icon-table"></i> Restaurant </h3>
     </div>
     <div class="widget-content">
         <div class="table-responsive">
             <table class="table table-bordered table-hover" id="restaurant_list">
                 <thead>
-                    <tr>
-                        <th><div class="checkbox"><?php echo $this->Form->checkbox('select_all', array('id' => 'restaurant_select_all')); ?></div></th>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Area</th>
-                <th>City</th>
-                <th>Email</th>
-                <th>Contact_no</th>
-                <th>Image</th>
-                <th></th>
-
+                <tr>
+                    <th><div class="checkbox"><?php echo $this->Form->checkbox('select_all', array('id' => 'restaurant_select_all')); ?></div></th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Area</th>
+                    <th>City</th>
+                    <th>Email</th>
+                    <th>Contact_no</th>
+                    <th>Image</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -170,17 +168,28 @@ var rowCount = $('#restaurant_list tr').length;
                                     ?></td>
                                 <!--<td><span class="label label-success">Active</span></td>-->
                                 <td class="text-right">
-                                    <?php echo $this->Html->link("Table", '/restaurantTables/index/' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'Table', 'class' => 'btn btn-primary btn-xs')); ?>
-                                    <?php // echo $this->Html->link("Qrcode", array('controller' => 'Qrcodes','action' => 'view', $restaurant['Restaurant']['id']), array('class' => 'btn btn-default btn-xs', 'target' => '_blank'));?>
-                                    <?php echo $this->Html->link("Edit Business", '/restaurants/edit/' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'Edit Business', 'class' => 'btn btn-primary btn-xs')); ?>
-                                    <?php echo $this->Html->link("View Menu", '/restaurants/view_menu/' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'View Menu', 'class' => 'btn btn-primary btn-xs')); ?>
-                                    <?php echo $this->Html->link("View Item's Stats", '/OrderReports/item_stat/' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'View Item\'s Stats', 'class' => 'btn btn-primary btn-xs')); ?>
-                                    <?php echo $this->Html->link("View History", '/restaurants/edit/' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'View History', 'class' => 'btn btn-primary btn-xs')); ?>
-                                    <?php echo $this->Html->link("Edit Menu", '/categories/index?rest_id=' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'Edit Menu', 'class' => 'btn btn-primary btn-xs')); 
-                                    ?>
-                                    <!--<a class="btn btn-default btn-xs" href="#">edit</a>-->
-        <?php echo $this->Form->postLink("<i class='icon-remove'></i>", array('action' => 'delete', $restaurant['Restaurant']['id']), array('class' => 'btn btn-danger btn-xs remove-tr', 'escape' => false, 'title' => 'Delete'), __('Are you sure you want to delete # %s?', $restaurant['Restaurant']['name'])); ?>
-                                    <!--<a class="btn btn-danger btn-xs remove-tr" href="#"><i class="icon-remove"></i></a>-->
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                            Options
+                                            <b class="caret"></b>
+                                        </a>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" align="left">
+
+                                            <li>
+                                                    <?php echo $this->Html->link("<i class='icon-th-large'></i> Tables", '/restaurantTables/index/' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'Table')); ?>
+                                            </li>
+                                            <li><?php // echo $this->Html->link("Qrcode", array('controller' => 'Qrcodes','action' => 'view', $restaurant['Restaurant']['id']), array('class' => 'btn btn-default btn-xs', 'target' => '_blank'));?>
+                                            <li><?php echo $this->Html->link("<i class='icon-edit'></i> Edit Business", '/restaurants/edit/' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'Edit Business')); ?></li>
+                                            <li><?php echo $this->Html->link("<i class='icon-glass'></i> View Menu", '/restaurants/view_menu/' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'View Menu')); ?></li>
+                                            <li><?php echo $this->Html->link("<i class='icon-star-empty'></i> View Item's Stats", '/OrderReports/item_stat/' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'View Item\'s Stats')); ?></li>
+                                            <li><?php echo $this->Html->link("<i class='icon-th-list'></i> View History", '/restaurants/edit/' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'View History')); ?></li>
+                                            <li><?php echo $this->Html->link("<i class='icon-pencil'></i> Edit Menu", '/categories/index?rest_id=' . $restaurant['Restaurant']['id'], array('escape' => false, 'title' => 'Edit Menu')); ?></li>
+                                            <!--<li><a class="btn btn-default btn-xs" href="#">edit</a></li>-->
+                                            <li role="presentation" class="divider"></li>
+                                            <li><?php echo $this->Form->postLink("<i class='icon-remove'></i> Delete", array('action' => 'delete', $restaurant['Restaurant']['id']), array('escape' => false, 'title' => 'Delete'), __('Are you sure you want to delete # %s?', $restaurant['Restaurant']['name'])); ?></li>
+                                            <!--<a class="btn btn-danger btn-xs remove-tr" href="#"><i class="icon-remove"></i></a>-->
+                                        </ul>
+                                    </div>
 
                                 </td>
                             </tr>
@@ -193,7 +202,7 @@ var rowCount = $('#restaurant_list tr').length;
 //        echo $this->QrCode->url($ar1); 
 ?>
                 </tbody>
-            </table>             
+            </table>
         </div>
     </div>
     <div class="pagination_outer pagination pagination-right pagination-mini" id="tablePagination">
@@ -224,9 +233,9 @@ var rowCount = $('#restaurant_list tr').length;
                 <option value="15">15</option>
                 <option value="25">25</option>
             </select>-->
-            <span class="per_page">per page</span>                    
+            <span class="per_page">per page</span>
         </span>
-        <ul id="tablePagination_paginater">                    
+        <ul id="tablePagination_paginater">
             <li>  <?php echo $this->paginator->first('|< first'); ?> </li>
             <li>  <?php echo $this->paginator->prev('<< prev', null, null, array('class' => 'prev disabled')); ?> </li>
             <li>   <?php echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active', 'currentTag' => 'a', 'escape' => false)); ?> </li>
@@ -243,3 +252,4 @@ var rowCount = $('#restaurant_list tr').length;
         </ul>
     </div>
 </div>
+

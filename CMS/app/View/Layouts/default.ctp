@@ -28,7 +28,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.1/js/bootstrap.min.js"></script>
         <?php
         echo $this->Html->meta('icon');
 echo $this->Form->hidden('SITE_URL', array('value' => SITE_URL, 'id' => 'SITE_URL'));
