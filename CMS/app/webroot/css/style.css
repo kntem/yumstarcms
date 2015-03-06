@@ -6,7 +6,7 @@
 }
 #tablePagination_perPage{
     float: left;    
-    width: 140px;
+    /*width: 140px;*/
 }
 #tablePagination_rowsPerPage{
     float: left;

@@ -151,6 +151,8 @@
                                 ?>  
                              </div>
                               </div></div>-->
+
+
 <div class="clearfix"></div>
 <div class="clearfix"></div>
 <div class="widget widget-blue">
@@ -168,8 +170,8 @@
                         <th>Item Name</th>
                         <th>Description</th>
                         <th>Price</th>
-                        <th>Icon</th>              
-                        <th></th>         
+                        <th>Icon</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -184,22 +186,32 @@
 //                            App::import("Controller", "Categories");  // load model category
 //                            $Category = new CategoriesController();
 //                            $Category_list = $Category->get_category($item_id); // here check_if_holiday is a method inside PublicHoliday Model
-                            ?>    
+                            ?>
                             <tr>
 
-                                <td><?php echo $cats['Category']['id']; ?></td>     
-                                <td><?php echo $cats['Category']['name']; ?></td>     
-                                <td></td>     
-                                <td><?php echo $cats['Category']['description']; ?></td>     
+                                <td><?php echo $cats['Category']['id']; ?></td>
+                                <td><?php echo $cats['Category']['name']; ?></td>
+                                <td></td>
+                                <td><?php echo $cats['Category']['description']; ?></td>
                                 <td></td>
 
                                 <td><?php
                                     if ($cats['Category']['icon'] == NULL) {
                                         $icon_path = SITE_URL . "category_images/place_holder_squre.png";
-                                        echo $this->Html->link($this->Html->image($icon_path, array('width' => '50', 'height' => '50')), $icon_path, array('class' => 'fancybox', 'escape' => false, 'data-fancybox-group' => 'button'));
+                                        echo $this->Html->link($this->Html->image($icon_path, array('width' => '50',
+                                                                                                    'height' => '50')),
+                                                               $icon_path,
+                                                               array('class' => 'fancybox',
+                                                                     'escape' => false,
+                                                                     'data-fancybox-group' => 'button'));
                                     } else {
                                         $icon_path = SITE_URL . "category_images/" . $cats['Category']['icon'];
-                                        echo $this->Html->link($this->Html->image($icon_path, array('width' => '50', 'height' => '50')), $icon_path, array('class' => 'fancybox', 'escape' => false, 'data-fancybox-group' => 'button'));
+                                        echo $this->Html->link($this->Html->image($icon_path, array('width' => '50', 
+                                                                                                    'height' => '50')),
+                                                               $icon_path,
+                                                               array('class' => 'fancybox',
+                                                                     'escape' => false, 
+                                                                     'data-fancybox-group' => 'button'));
                                     }
                                     ?></td>
                             </tr>
@@ -211,10 +223,10 @@
                 if ($items['category_id'] == $cats['Category']['id']) {
                     ?>   <tr>
 
-                                            <td><?php echo $items['id']; ?></td>     
-                                            <td></td>     
-                                            <td><?php echo $items['name']; ?></td>     
-                                            <td><?php echo $items['description']; ?></td>     
+                                            <td><?php echo $items['id']; ?></td>
+                                            <td></td>
+                                            <td><?php echo $items['name']; ?></td>
+                                            <td><?php echo $items['description']; ?></td>
                                             <td><?php echo $this->Number->currency($items['price'], 'EUR'); ?></td>
 
                                             <td>  <?php
@@ -226,7 +238,6 @@
                                         </tr>
                     <?php
                 }
-                
             }
         }
         ?>
@@ -239,15 +250,17 @@
 
                 </tbody>
             </table>
-             
+
         </div>
     </div>
-         <div class="pagination_outer pagination pagination-right pagination-mini" id="tablePagination">
-        <span id="tablePagination_perPage"><?php
+    <div class="pagination_outer pagination pagination-right pagination-mini" id="tablePagination">
+        <div id="tablePagination_perPage">
+        <?php
             if (isset($this->params->query['limit'])) {
                 $limit = $this->params->query['limit'];
 //            echo "Limit : ".$limit;
-            } else {
+            }
+            else {
                 $limit = 5;
             }
             $options = array('5' => 5, '10' => 10, '20' => 20);
@@ -255,26 +268,28 @@
             echo $this->Form->create(array('type' => 'get'));
 
             echo $this->Form->select('limit', $options, array(
-                'value' => $limit,
-                'default' => $limit,
-                'onChange' => 'this.form.submit();',
-                'name' => 'limit',
-                'id' => 'tablePagination_rowsPerPage',
-                'class' => 'per_page span2'
-                    )
-            );
+                                     'value' => $limit,
+                                     'default' => $limit,
+                                     'onChange' => 'this.form.submit();',
+                                     'name' => 'limit',
+                                     'id' => 'tablePagination_rowsPerPage',
+                                     'class' => 'per_page span2',
+                                     'style'     => 'width:auto'
+                                     )
+                                    );
             echo $this->Form->end();
             ?>
-            <span class="per_page">per page</span>                    
-        </span>
-        <ul id="tablePagination_paginater">                    
-            <li>  <?php echo $this->paginator->first('|< first'); ?> </li>
-            <li>  <?php echo $this->paginator->prev('<< prev', null, null, array('class' => 'prev disabled')); ?> </li>
-            <li>   <?php echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active', 'currentTag' => 'a', 'escape' => false)); ?> </li>
-            <li>   <?php echo $this->paginator->next('next >>', null, null, array('class' => 'next disabled')); ?> </li>
-            <li>  <?php echo $this->paginator->last('last >|'); ?> </li>
-            <li class="no_of_page"><?php echo $this->Paginator->counter(); ?></li>
-               
-        </ul>
+            <span class="per_page">per page</span>
+        </div>
+        <div>
+            <ul id="tablePagination_paginater">
+                <li>  <?php echo $this->paginator->first('|< first'); ?> </li>
+                <li>  <?php echo $this->paginator->prev('<< prev', null, null, array('class' => 'prev disabled')); ?> </li>
+                <li>  <?php echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active', 'currentTag' => 'a', 'escape' => false)); ?> </li>
+                <li>  <?php echo $this->paginator->next('next >>', null, null, array('class' => 'next disabled')); ?> </li>
+                <li>  <?php echo $this->paginator->last('last >|'); ?> </li>
+                <li class="no_of_page"><?php echo $this->Paginator->counter(); ?></li>
+            </ul>
+        </div>
     </div>
 </div>
