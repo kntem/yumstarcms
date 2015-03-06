@@ -27,21 +27,21 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700|Open+Sans:400,700,300|Roboto:100,300,400,700|Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.1/js/bootstrap.min.js"></script>
         <?php
         echo $this->Html->meta('icon');
-echo $this->Form->hidden('SITE_URL', array('value' => SITE_URL, 'id' => 'SITE_URL'));
-//		echo $this->Html->css('cake.generic');
-        echo $this->Html->css(array('style', 'b7fdc65bf39ca5aa7c146814f889de3a', 'ui.switchbutton.min', 'jquery-ui-1.10.3.custom', 'jquery.fancybox'));
+        echo $this->Form->hidden('SITE_URL', array('value' => SITE_URL, 'id' => 'SITE_URL'));
+        //		echo $this->Html->css('cake.generic');
+        echo $this->Html->css(array('style', 'b7fdc65bf39ca5aa7c146814f889de3a', 'ui.switchbutton.min', 'jquery.fancybox'));
         echo $this->Html->css('/usermgmt/css/umstyle');
-//             echo $this->Html->script(array('c81813dd5f2238060c9ddecda9683907','3315666c34de7c122079bfa9bb9bfa9f'));      
-        echo $this->Html->script(array('jquery.validate', 'jquery.min', 'jquery.tablesorter.min', 'jquery.tablePagination', 'jquery.ui.datepicker.js', 'jquery-ui-1.8.16.custom.min', 'jquery-ui-1.10.3.custom','jquery.fancybox','c81813dd5f2238060c9ddecda9683907','jquery.bpopup.min'));
+        //             echo $this->Html->script(array('c81813dd5f2238060c9ddecda9683907','3315666c34de7c122079bfa9bb9bfa9f'));
+        echo $this->Html->script(array('jquery.validate', 'jquery.min', 'jquery.tablesorter.min', 'jquery.tablePagination', 'jquery.fancybox','c81813dd5f2238060c9ddecda9683907','jquery.bpopup.min'));
+        echo $this->Html->script('/bootstrap/js/bootstrap.min.js');
         echo $this->fetch('meta');
         echo $this->fetch('css');
+        echo $this->Html->css('/bootstrap/css/bootstrap.min.css');
+        echo $this->Html->css('/bootstrap/css/bootstrap-responsive.min.css');
         echo $this->fetch('script');
         ?>
-        
     </head>
     <body>
         <div id="container" class="page_wrapper">
