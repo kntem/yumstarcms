@@ -34,13 +34,19 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         echo $this->Html->css(array('style', 'b7fdc65bf39ca5aa7c146814f889de3a', 'ui.switchbutton.min', 'jquery.fancybox'));
         echo $this->Html->css('/usermgmt/css/umstyle');
         //             echo $this->Html->script(array('c81813dd5f2238060c9ddecda9683907','3315666c34de7c122079bfa9bb9bfa9f'));
-        echo $this->Html->script(array('jquery.validate', 'jquery.min', 'jquery.tablesorter.min', 'jquery.tablePagination', 'jquery.fancybox','c81813dd5f2238060c9ddecda9683907','jquery.bpopup.min'));
+        echo $this->Html->script(array('jquery.validate',
+                                       'jquery.min',
+                                       'jquery.tablesorter.min',
+                                       'jquery.tablePagination',
+                                       'jquery.fancybox',
+                                       'c81813dd5f2238060c9ddecda9683907',
+                                       'jquery.bpopup.min'));
+        echo $this->fetch('script');
         echo $this->Html->script('/bootstrap/js/bootstrap.min.js');
         echo $this->fetch('meta');
-        echo $this->fetch('css');
         echo $this->Html->css('/bootstrap/css/bootstrap.min.css');
         echo $this->Html->css('/bootstrap/css/bootstrap-responsive.min.css');
-        echo $this->fetch('script');
+        echo $this->fetch('css');
         ?>
     </head>
     <body>
