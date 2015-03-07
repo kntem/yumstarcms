@@ -94,6 +94,8 @@
             }
         });
 
+    $(".collapse").collapse();
+
     });
     function changestatus(status) {
        var id = $("#status").attr("id-amj");
@@ -104,14 +106,12 @@
 <!--
   <div style="margin-bottom: 20px;">
            <div class="row">
-        
              <?php //  phpinfo();
              echo $this->Form->create('Search', array('class' => 'form-inline', 'id' => 'userSetting_search')); ?>
-                                                         
                                 <?php // echo $this->Form->input('Search.order_date', array('id' => 'order_date', 'type' => 'text', 'class' => 'form-control input-daterangepicker', 'label' => false,'placeholder'=>'Restaurant Name')); ?>
                                   <div class="col-sm-2">
                                 <?php // echo $this->Form->input('Search.name', array('id' => 'name', 'type' => 'text', 'class' => 'form-control ', 'label' => false,'placeholder'=>'Restaurant Name')); ?>
-                                  </div>    
+                                  </div>
 <?php
             $st = "";
             if (isset($this->request->query['status'])) {
@@ -121,22 +121,19 @@
             <div class="col-md-2">
                 <?php echo $this->Form->input('Search.status', array('id' => 'status', 'id-amj'=>$rid,'class' => 'required form-control', 'label' => false, 'type' => 'select', 'empty' => 'All', 'options' => Array('cancel', 'running', 'completed'), 'onchange' => 'changestatus(this.options[this.selectedIndex].value)', 'selected' => $st,'')); ?>                
             </div>
-<div class="col-sm-1">                        
-                                    
+<div class="col-sm-1">
                                  <?php echo $this->Form->input('Search.year', array('type' => 'select','empty' => 'Select Year','options'=>$year,'label'=>false, 'class' => 'form-control ','id'=>'year')); ?>
                                               </div><div class="col-sm-1">
                                                   <?php echo $this->Form->input('Search.mon', array('type' => 'select','options'=>$mon,'empty' => 'Select Month','label'=>false, 'class' => 'form-control ','id'=>'month')); ?>
                                </div><div class="col-sm-1">
                                    <?php echo $this->Form->input('Search.day', array('type' => 'select','options'=>$day,'empty' => 'Select Day','label'=>false, 'class' => 'form-control ','id'=>'day')); ?>
                                           </div>
-                               
                                        <label class="col-sm-1 control-label">Total Amount:</label>
                                        <div class="col-sm-2">
                                                   <?php echo $this->Form->input('Search.famt', array('id' => 'famt', 'type' => 'text', 'class' => 'form-control ', 'label' => false,'placeholder'=>'Minimum Amount')); ?>
                                </div><div class="col-sm-2">
                                                   <?php echo $this->Form->input('Search.lamt', array('id' => 'lamt', 'type' => 'text', 'class' => 'form-control ', 'label' => false,'placeholder'=>'Maximum Amount')); ?>
                                </div>
-                                 
                                   <div class="col-sm-2">
                                 <?php echo $this->Form->button('Search', array('type' => 'submit', 'class' => 'btn btn-success','id'=>'search')); ?>
                                                    </div>
@@ -144,13 +141,69 @@
                                <?php 
                                 if(isset($flag)) {
          if($flag=='true') {
-  
                                 echo $this->Html->link('View All', '/orderReports/item_stat/'.$rid, array('class' => 'btn btn-primary')); 
                                 }}
                                 echo $this->Form->end();
                                 ?>  
                              </div>
                               </div></div>-->
+
+
+
+<div class="accordion" id="accordion2">
+<? foreach ($category as $key=>$cats) { ?>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<? echo $key;?>">
+                <h3>
+                <? if ($cats['Category']['icon'] == NULL)
+                       $icon_path = SITE_URL . "category_images/place_holder_squre.png";
+                   else
+                        $icon_path = SITE_URL . "category_images/" . $cats['Category']['icon'];
+                   echo $this->Html->image($icon_path,
+                                          array('width' => '40',
+                                                'height' => '40',
+                                                'class' => 'img-circle',
+                                                'style' =>'height: 40px;
+                                                           width: 40px;
+                                                           float: left;
+                                                           margin-right: 5px;'));
+                ?>
+                    <!-- <img src="http://localhost/category_images/4_drinks.jpg"
+                         class="img-circle" style="height: 40px; width: 40px; float: left; margin-right: 5px;"> -->
+                       <?php echo $cats['Category']['name']; ?>
+                </h3>
+            </a>
+        </div>
+        <div id="collapse<? echo $key;?>" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <blockquote>
+                    <p><?php echo $cats['Category']['description']; ?></p>
+                </blockquote>
+                <table class="table table-hover">
+                    <tr>
+                        <td>Item Name</td>
+                        <td>Description</td>
+                        <td>Price</td>
+                        <td>View gallery</td>
+                    </tr>
+                        <? foreach ($restaurant['Item'] as $items) {
+                            if ($items['category_id'] == $cats['Category']['id']) {
+                        ?>
+                    <tr>
+                        <td><?php echo $items['name']; ?></td>
+                        <td><?php echo $items['description']; ?></td>
+                        <td><?php echo $this->Number->currency($items['price'], 'EUR'); ?></td>
+                        <td><? echo $this->Html->link("View Gallery ", '/Suggestions/index/' . $items['id'], array('escape' => false, 'title' => 'Edit')); ?></td>
+                    </tr>
+                    <? }} ?>
+                </table>
+            </div>
+        </div>
+    </div>
+<? } ?>
+</div>
+
 
 
 <div class="clearfix"></div>
