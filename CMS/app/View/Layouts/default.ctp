@@ -32,11 +32,16 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         echo $this->Form->hidden('SITE_URL', array('value' => SITE_URL, 'id' => 'SITE_URL'));
         //echo $this->Html->css('cake.generic');
         echo $this->Html->css(array('style',
-                                    'b7fdc65bf39ca5aa7c146814f889de3a',
                                     'ui.switchbutton.min',
-                                    'jquery.fancybox'));
+                                    'jquery.fancybox',
+                                    'new1',
+                                    'new2',
+                                    //'new3',
+                                    'new4',
+                                    'new5'));
         echo $this->Html->css('/usermgmt/css/umstyle');
-        echo $this->Html->script(array('c81813dd5f2238060c9ddecda9683907','3315666c34de7c122079bfa9bb9bfa9f'));
+        echo $this->Html->script(array('3315666c34de7c122079bfa9bb9bfa9f'));
+        //                               'c81813dd5f2238060c9ddecda9683907',));
         echo $this->Html->script(array('jquery.validate',
                                        'jquery.min',
                                        'jquery.tablesorter.min',

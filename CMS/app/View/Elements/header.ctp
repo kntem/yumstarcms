@@ -1,4 +1,4 @@
-<div class="page-header">
+<div class="top-page-header">
     <div class="header-links">
         <!--    <div class="top-search-w pull-right">
               <input type="text" placeholder="Search" class="top-search">
