@@ -33,34 +33,57 @@ if (!empty($getPermissions)) {
         if ($getPermission['UserGroupPermission']['controller'] == 'Users' && $getPermission['UserGroupPermission']['action'] == 'addUser' && $getPermission['UserGroupPermission']['allowed'] == 1) {
             $adduser = 1;
         }
-        if ($getPermission['UserGroupPermission']['controller'] == 'Groups' && $getPermission['UserGroupPermission']['action'] == 'allGroups' && $getPermission['UserGroupPermission']['allowed'] == 1) {
+        if ($getPermission['UserGroupPermission']['controller'] == 'UserGroups' && $getPermission['UserGroupPermission']['action'] == 'addGroup' && $getPermission['UserGroupPermission']['allowed'] == 1) {
             $addgroup = 1;
         }
-        if ($getPermission['UserGroupPermission']['controller'] == 'Groups' && $getPermission['UserGroupPermission']['action'] == 'index' && $getPermission['UserGroupPermission']['allowed'] == 1) {
+        if ($getPermission['UserGroupPermission']['controller'] == 'UserGroups' && $getPermission['UserGroupPermission']['action'] == 'index' && $getPermission['UserGroupPermission']['allowed'] == 1) {
             $allgroup = 1;
         }
     }
 }
 ?>
-<div class="dashboard_links" id="dashboard">
-    <div><?php echo $this->Html->link(__("Dashboard", true), "/dashboard") ?></div>
-    <?php //   if ($this->UserAuth->isAdmin()) {   ?>
-    <?php if ($adduser == 1) { ?>
-        <div><?php echo $this->Html->link(__("Add User", true), "/addUser"); ?></div>
-    <?php } if ($alluser == 1) { ?>
-        <div><?php echo $this->Html->link(__("All Users", true), "/allUsers") ?></div>
-    <?php } if ($addgroup == 1) { ?>
-        <div><?php echo $this->Html->link(__("Add Group", true), "/addGroup") ?></div>
-    <?php } if ($allgroup == 1) { ?>
-        <div><?php echo $this->Html->link(__("All Groups", true), "/allGroups"); ?></div>
-    <?php } if ($this->UserAuth->isAdmin()) { ?>
-        <div><?php echo $this->Html->link(__("Permissions", true), "/permissions") ?></div>
-    <?php } ?>
-    <div><?php echo $this->Html->link(__("Profile", true), "/viewUser/" . $this->UserAuth->getUserId()) ?></div>
-    <div><?php echo $this->Html->link(__("Edit Profile", true), "/editUser/" . $this->UserAuth->getUserId()) ?></div>
+
+<?
+//check if navigation link is active
+function is_page_active($here, $page){
+    if (strpos($here,$page) !== false)
+        echo "class='active'";
+}
+?>
+
+
+<!--<li class="dashboard_links" id="dashboard">-->
+<ul class="nav nav-tabs">
+
+    <li <? is_page_active($this->here, "dashboard"); ?> > <?php echo $this->Html->link(__("Dashboard", true), "/dashboard") ?></li>
+
+    <? //   if ($this->UserAuth->isAdmin()) {   ?>
+
+    <?
+    if ($alluser == 1) { ?>
+        <li <? is_page_active($this->here, "User"); ?> >
+            <? echo $this->Html->link(__("Users", true), "/allUsers") ?>
+        </li>
+
+    <? }
+    if ($allgroup == 1) { ?>
+        <li <? is_page_active($this->here, "allGroups"); ?> >
+            <?php echo $this->Html->link(__("User Groups", true), "/allGroups"); ?>
+        </li>
+    <? }
+    if ($this->UserAuth->isAdmin()) { ?>
+        <li><?php echo $this->Html->link(__("Permissions", true), "/permissions") ?></li>
+    <? } ?>
+
+    <li><?php echo $this->Html->link(__("Profile", true), "/viewUser/" . $this->UserAuth->getUserId()) ?></li>
+
+    <li><?php echo $this->Html->link(__("Edit Profile", true), "/editUser/" . $this->UserAuth->getUserId()) ?></li>
     <?php //   } else {  ?>
-    <div><?php // echo $this->Html->link(__("Profile", true), "/myprofile") ?></div>
+
+    <li><?php // echo $this->Html->link(__("Profile", true), "/myprofile") ?></li>
     <?php //   }   ?>
-    <div><?php echo $this->Html->link(__("Change Password", true), "/changePassword") ?></div>
-    <div><?php echo $this->Html->link(__("Sign Out", true), "/logout") ?></div>
-</div>
+
+    <li><?php echo $this->Html->link(__("Change Password", true), "/changePassword") ?></li>
+
+    <li><?php echo $this->Html->link(__("Sign Out", true), "/logout") ?></li>
+</ul>
