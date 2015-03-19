@@ -20,81 +20,85 @@
 ?>
 
 	<?php echo $this->Session->flash(); ?>
-	<?php echo $this->element('dashboard'); ?>
-	<?php echo $this->Form->create('User', array('action' => 'addUser','class'=>'form-horizontal')); ?>
+    <?php echo $this->element('dashboard'); ?>
+
+    <ul class="breadcrumb">
+        <li><a href="/dashboard">Dashboard</a> <span class="divider">/</span></li>
+        <li><a href="allUsers">Users</a> <span class="divider">/</span></li>
+        <li class="active">Add User</li>
+    </ul>
+
+    <?php echo $this->Form->create('User',
+                                   array('action' => 'addUser','class'=>'form-horizontal',
+                                       'inputDefaults' => array(
+                                           'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline'))))
+                                   );?>
 	<div class="widget widget-blue">
-	 <div class="widget-title">
-        <h3><?php echo __('Add Users'); ?><span class="home_link" style="float:right"><?php echo $this->Html->link(__("Home", true), "/") ?></span></h3>
-    </div>
+        <div class="widget-title">
+            <h3><?php echo __('Add User'); ?></h3>
+        </div>
 			
-            
-			
-				<div class="widget-content">
+        <div class="widget-content">
 					
-                                    <?php $user_type = $this->UserAuth->getUser();
-        $user_type = $user_type['UserGroup']['name'];
-        if($user_type == 'Admin'){?>
-			<?php   if (count($userGroups) >2) { ?>
-						<div class="form-group">
-							<label class="col-sm-4 control-label"><?php echo __('Group');?><font color='red'>*</font></label>
-							<div class="col-sm-8" ><?php echo $this->Form->input("user_group_id" ,array('type' => 'select', 'label' => false,'div' => false,'class'=>"required form-control",'onchange'=>'selectres(this.options[this.selectedIndex].value)' ))?></div>
-							
-						</div>
-       
-                                    <div class="form-group" id="restsid" style="display:none;">
-						<label class="col-sm-4 control-label"><?php echo __('Restaurant');?><font color='red'>*</font></label>
-						<div class="col-sm-8" ><?php echo $this->Form->input("rest_id" ,array('type' => 'select', 'label' => false,'div' => false,'class'=>"required form-control", 'options' => $restaurant ))?></div>
-						
+        <?php
+            $user_type = $this->UserAuth->getUser();
+            $user_type = $user_type['UserGroup']['name'];
+            if (($user_type == 'Admin') and (count($userGroups) > 2)){ ?>
+                <div class="control-group <? if (isset($this->validationErrors['User']['user_group_id'])) { ?> error<? } ?>">
+                    <label class=" control-label"><?php echo __('Group');?><font color='red'>*</font></label>
+                    <div class="controls"><?php echo $this->Form->input("user_group_id" ,array('type' => 'select', 'label' => false,'div' => false,'class'=>"required form-control",'onchange'=>'selectres(this.options[this.selectedIndex].value)' ))?></div>
+                </div>
+
+                <div class="control-group" <? if (isset($this->validationErrors['User']['rest_id'])) { ?> error<? } ?> id="restsid" style="display:none;">
+                    <label class=" control-label"><?php echo __('Restaurant');?><font color='red'>*</font></label>
+                    <div class="controls"><?php echo $this->Form->input("rest_id" ,array('type' => 'select', 'label' => false,'div' => false,'class'=>"required form-control", 'options' => $restaurant ))?>
+                    </div>
+                </div>
+            <?php }
+            else{ ?>
+                <div class="control-group <? if (isset($this->validationErrors['User']['rest_id'])) { ?> error<? } ?>">
+                    <label class=" control-label"><?php echo __('Restaurant');?><font color='red'>*</font></label>
+                    <div class="controls"><?php echo $this->Form->input("rest_id" ,array('type' => 'select', 'label' => false,'div' => false,'class'=>"required form-control", 'options' => $restaurant ))?></div>
+                </div>
+            <?php } ?>
+            <div class="control-group <? if (isset($this->validationErrors['User']['username'])) { ?> error<? } ?>">
+                    <label class=" control-label"><?php echo __('Username');?><font color='red'>*</font></label>
+                    <div class="controls"><?php echo $this->Form->input("username" ,array('label' => false,'div' => false,'class'=>"required form-control" ))?></div>
+                </div>
+
+                <div class="control-group <? if (isset($this->validationErrors['User']['first_name'])) { ?> error<? } ?>">
+                    <label class=" control-label"><?php echo __('First Name');?><font color='red'>*</font></label>
+                    <div class="controls"><?php echo $this->Form->input("first_name" ,array('label' => false,'div' => false,'class'=>"required form-control" ))?></div>
+                </div>
+
+                <div class="control-group <? if (isset($this->validationErrors['User']['last_name'])) { ?> error<? } ?>">
+                    <label class=" control-label"><?php echo __('Last Name');?><font color='red'>*</font></label>
+                    <div class="controls"><?php echo $this->Form->input("last_name" ,array('label' => false,'div' => false,'class'=>"required form-control" ))?></div>
+                </div>
+
+                <div class="control-group <? if (isset($this->validationErrors['User']['email'])) { ?> error<? } ?>">
+                    <label class=" control-label"><?php echo __('Email');?><font color='red'>*</font></label>
+                    <div class="controls"><?php echo $this->Form->input("email" ,array('label' => false,'div' => false,'class'=>"required form-control" ))?></div>
+                </div>
+
+                <div class="control-group <? if (isset($this->validationErrors['User']['password'])) { ?> error<? } ?>">
+                    <label class=" control-label"><?php echo __('Password');?><font color='red'>*</font></label>
+                    <div class="controls"><?php echo $this->Form->input("password" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"required form-control" ))?></div>
+                </div>
+
+                <div class="control-group <? if (isset($this->validationErrors['User']['cpassword'])) { ?> error<? } ?>">
+                    <label class=" control-label"><?php echo __('Confirm Password');?><font color='red'>*</font></label>
+                    <div class="controls"><?php echo $this->Form->input("cpassword" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"required form-control" ))?></div>
+                </div>
+
+                <div class="control-group">
+                    <label class=" control-label"></label>
+                    <div class="controls"><?php echo $this->Form->Submit(__('Add User'),array('class' => 'btn btn-success', 'id' => 'btnsubmit'));?></div>
+                </div>
         </div>
-                                     <?php   } } else{ ?>
-                                          <div class="form-group">
-						<label class="col-sm-4 control-label"><?php echo __('Restaurant');?><font color='red'>*</font></label>
-						<div class="col-sm-8" ><?php echo $this->Form->input("rest_id" ,array('type' => 'select', 'label' => false,'div' => false,'class'=>"required form-control", 'options' => $restaurant ))?></div>
-						
-        </div>
-                                     <?php } ?>
-					<div class="form-group">
-						<label class="col-sm-4 control-label"><?php echo __('Username');?><font color='red'>*</font></label>
-						<div class="col-sm-8" ><?php echo $this->Form->input("username" ,array('label' => false,'div' => false,'class'=>"required form-control" ))?></div>
-						
-					</div>
-					<div class="form-group">
-						<label class="col-sm-4 control-label"><?php echo __('First Name');?><font color='red'>*</font></label>
-						<div class="col-sm-8" ><?php echo $this->Form->input("first_name" ,array('label' => false,'div' => false,'class'=>"required form-control" ))?></div>
-						
-					</div>
-					<div class="form-group">
-						<label class="col-sm-4 control-label"><?php echo __('Last Name');?><font color='red'>*</font></label>
-						<div class="col-sm-8" ><?php echo $this->Form->input("last_name" ,array('label' => false,'div' => false,'class'=>"required form-control" ))?></div>
-						
-					</div>
-					<div class="form-group">
-						<label class="col-sm-4 control-label"><?php echo __('Email');?><font color='red'>*</font></label>
-						<div class="col-sm-8" ><?php echo $this->Form->input("email" ,array('label' => false,'div' => false,'class'=>"required form-control" ))?></div>
-						
-					</div>
-					<div class="form-group">
-						<label class="col-sm-4 control-label"><?php echo __('Password');?><font color='red'>*</font></label>
-						<div class="col-sm-8"><?php echo $this->Form->input("password" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"required form-control" ))?></div>
-						
-					</div>
-					<div class="form-group">
-						<label class="col-sm-4 control-label"><?php echo __('Confirm Password');?><font color='red'>*</font></label>
-						<div class="col-sm-8"><?php echo $this->Form->input("cpassword" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"required form-control" ))?></div>
-						
-					</div>
-					<div class="form-group">
-						<label class="col-sm-4 control-label"></label>
-						<div class="col-sm-8"><?php echo $this->Form->Submit(__('Add User'),array('class' => 'btn btn-success', 'id' => 'btnsubmit'));?></div>
-						
-					</div>
-        </div>
-            </div>
-				
-		
-		
-	
-					<?php echo $this->Form->end(); ?>
+    </div>
+
+    <?php echo $this->Form->end(); ?>
 				
 	
 

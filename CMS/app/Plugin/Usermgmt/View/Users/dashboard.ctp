@@ -20,7 +20,7 @@
 ?>
 <?php echo $this->Session->flash(); ?>
 <?php echo $this->element('dashboard');  ?>
-<div class="widget widget-blue">        
+<div class="widget widget-blue">
     <div class="widget-title">
         <h3><?php echo __('Dashboard'); ?><span class="home_link" style="float:right"><?php echo $this->Html->link(__("Home", true), "/") ?></span></h3>
     </div>
@@ -42,5 +42,5 @@
         </div>
         <div class="um_box_mid_content_mid_right" align="right"></div>
         <div style="clear:both"></div>
-    </div>        
+    </div>
 </div>
