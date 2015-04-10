@@ -19,64 +19,77 @@
 */
 ?>
 
-<div id="container">
-<?php echo $this->Form->create('User', array('action' => 'login')); ?>
-<div class="all-wrapper no-menu-wrapper light-bg">
-  <div class="login-logo-w">
-    <a href="index.html" class="logo">
-      <i class="icon-rocket"></i>
-    </a>
-  </div>
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
+<div class="container">
+    <?php echo $this->Form->create('User', array('action' => 'login')); ?>
+<!--    <div class="all-wrapper no-menu-wrapper light-bg">
+        <div class="login-logo-w">
+        <a class="logo">
+            <?// echo $this->Html->image('yumstar-logo-small.png', array('alt' => 'Yumstar')); ?>
+        </a>
+    </div>
+-->
+    <div class="row" style="margin-top:40px;">
+        <div class="span4 offset4">
 
-      <div class="widget widget-blue">
-        <div class="widget-title">
-          <h3 class="text-center"><i class="icon-lock"></i> Login </h3>
-
-        </div>
-        <div class="widget-content">
-            <?php echo $this->Session->flash(); ?>
-
-          <form action="#" role="form">
-              <div class="lined-separator"> login using email</div>
-            <div class="form-group relative-w">
-                <?php echo $this->Form->input("email" ,array('label' => false,'div' => false,'class'=>"form-control" ))?>
-              <!--<input type="email" class="form-control" placeholder="Enter email">-->
-              <i class="icon-user input-abs-icon"></i>
+            <div class="widget widget-blue">
+            <div class="widget-title">
+                <h3 class="text-center lead"> Sign in to continue </h3>
             </div>
+            <div class="widget-content">
+                <center>
+                    <img class="profile-img" src="/img/yumstar-logo-small.png" alt="" style="height:120px">
+                </center>
+
+                <?php echo $this->Session->flash(); ?>
+                <form action="#" role="form">
+                    <hr/>
+                    <div class="form-group relative-w">
+                        <div class="input-prepend">
+                            <span class="add-on" style="height: 30px; width: 30px;"><i class="icon-user input-abs-icon" style="vertical-align: -7px; background-image: none;"></i></span>
+                            <?php echo $this->Form->input("email" ,array('label' => false,'div' => false,'class'=>"form-control span3", 'style' => "min-height: 30px !important; height: 20 px;"))?>
+                            <!--<input type="email" class="form-control" placeholder="Enter email">-->
+
+                        </div>
+                    </div>
+                    <div class="form-group relative-w">
+                        <div class="input-prepend">
+                            <span class="add-on" style="height: 30px; width: 30px;"><i class="icon-lock input-abs-icon" style="vertical-align: -7px; background-image: none;"></i></span>
+                        <?php echo $this->Form->input("password" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"form-control span3", 'style' => "min-height: 30px !important; height: 20 px;"))?>
+                        <!--<input type="password" class="form-control" placeholder="Password">-->
+                        </div>
+                    </div>
             <div class="form-group relative-w">
-                <?php echo $this->Form->input("password" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"form-control" ))?>
-              <!--<input type="password" class="form-control" placeholder="Password">-->
-              <i class="icon-lock input-abs-icon"></i>
-            </div>
-               <div class="form-group relative-w">
             <?php
-                $options = array( array('name' => 'Admin', 'value' => '1'),
-                                array('name' => 'Buisness Owner', 'value' => '4'),
-                                array('name' => 'Barristas/Cooks', 'value' => '5'),
+                $options = array(array('name' => 'Admin', 'value' => '1'),
+                                 array('name' => 'Buisness Owner', 'value' => '4'),
+                                 array('name' => 'Barristas/Cooks', 'value' => '5'),
                                  );
-                echo $this->Form->input('user_type', array( 'type' => 'select',
-                                                            'options' => $options,
-                                                            'class' => 'form-control',
-                                                            'label'=>FALSE));
+                echo $this->Form->input('user_type',array('type' => 'select',
+                                                          'options' => $options,
+                                                          'class' => 'form-control',
+                                                          'label'=>FALSE));
             ?>
                  <?php //  echo $this->Form->select('field', array("Admin","Buisness Owner","Bar/cuisine Owner","class"=>"form-control")); ?>
                 <?php // echo $this->Form->input("password" ,array("type"=>"password",'label' => false,'div' => false,'class'=>"form-control" ))?>
               <!--<input type="password" class="form-control" placeholder="Password">-->
               <!--<i class="icon-lock input-abs-icon"></i>-->
             </div>
-            <div class="form-group">
-              <div class="checkbox">
-                <label>
-                  <?php echo $this->Form->input("remember" ,array("type"=>"checkbox"));?>
-                </label>
-              </div>
-            </div>
 <!--
             <a href="index.html" class="btn btn-primary btn-rounded btn-iconed">
               <span>Log me in</span>-->
-              <?php echo $this->Form->Submit(__('Log me in'),array('class'=>'btn btn-primary btn-rounded btn-iconed icon-arrow-right'));?>
+            <div class="form-group">
+
+              <?php echo $this->Form->Submit(__('Log me in'),array('class'=>'btn btn-primary btn-large btn-danger btn-block',
+                                                                   'style' => "-webkit-box-shadow: none;
+                                                                               -moz-box-shadow: none;
+                                                                               box-shadow: none;
+                                                                               background-image:none;
+                                                                               border:0;"));?>
+            </div>
+
+            <div class="form-group" style="margin-top: 10px;">
+                  <?php echo $this->Form->input("remember me" ,array("type"=>"checkbox"));?>
+            </div>
             <!--</a>-->
 <!--            <div class="no-account-yet">
               Don't have an account yet? <a href="register.html">Register Now</a>

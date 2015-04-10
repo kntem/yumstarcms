@@ -720,9 +720,9 @@ html,body {
 }
 
 .input-abs-icon {
-    position: absolute;
-    right: 10px;
-    top: 10px;
+//    position: absolute;
+//    right: 10px;
+//    top: 10px;
     color: #aaa;
     font-size: 18px;
 }
@@ -3109,10 +3109,6 @@ form#order_item_search .form-control {
     border-radius: 4px !important;
 }
 
-.btn-primary {
-    background: #00999b !important;
-    background-image: none !important;
-}
 
 .home_link a {
     font-size: 15px;
@@ -3134,4 +3130,13 @@ form#order_item_search .form-control {
 
 .all_users_table tr {
     font-size: 13px;
+}
+
+.btn-flat {
+    filter:progid:DXImageTransform.Microsoft.Gradient(enabled='false');
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-image:none;
+    border:0;
 }
