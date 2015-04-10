@@ -185,7 +185,7 @@ class OrderReportsController extends AppController {
 
     public function restaurant_report($id) {
 //           $this->layout = 'ajax';
-        $this->paginate['fields'] = array('sum((Order.total_amount*Usersetting.bill_rate)/100) As total_cum ', 'Restaurant.*', 'sum(Order.total_amount) As total');
+        $this->paginate['fields'] = array('sum((Order.total_amount*user_settings.bill_rate)/100) As total_cum ', 'Restaurant.*', 'sum(Order.total_amount) As total');
         $this->paginate['joins'] = array();
         $this->paginate['group'] = array('Order.rest_id');
         $conditions = array('Restaurant.user_id' => $id);
@@ -193,7 +193,7 @@ class OrderReportsController extends AppController {
         $res_ords = $this->Paginator->paginate('Order', $conditions);
 //        $res_ord = $this->Order->find('all', array(
 //            'conditions' => array('Restaurant.user_id' => $id),
-//            'fields' => array('sum((Order.total_amount*Usersetting.bill_rate)/100) As total_cum ','Restaurant.*','sum(Order.total_amount) As total'),
+//            'fields' => array('sum((Order.total_amount*user_settings.bill_rate)/100) As total_cum ','Restaurant.*','sum(Order.total_amount) As total'),
 //            'group' => 'Order.rest_id'
 //        ));
 //        $this->set('res_ords', $res_ord);
@@ -278,7 +278,7 @@ class OrderReportsController extends AppController {
         $user = $this->Paginator->paginate('User', $conditions1);
         $this->set('users', $user);
         $orderItem1 = $this->Order->find('all', array(
-            'fields' => array('sum((Order.total_amount*Usersetting.bill_rate)/100) As total_cum ', 'UserSetting.user_id', 'sum(Order.total_amount) As total'),
+            'fields' => array('sum((Order.total_amount*user_settings.bill_rate)/100) As total_cum ', 'UserSetting.user_id', 'sum(Order.total_amount) As total'),
             'group' => 'Restaurant.user_id'
         ));
         $this->set('orderItems', $orderItem1);
@@ -292,7 +292,7 @@ class OrderReportsController extends AppController {
         $this->set('users', $user);
 //                $res_ord = $this->Order->find('all', array(
 //            'conditions' => array('Restaurant.user_id' => $id),
-//            'fields' => array('sum((Order.total_amount*Usersetting.bill_rate)/100) As total_cum ','Restaurant.*','sum(Order.total_amount) As total'),
+//            'fields' => array('sum((Order.total_amount*user_settings.bill_rate)/100) As total_cum ','Restaurant.*','sum(Order.total_amount) As total'),
 //            'group' => 'Order.rest_id'
 //        ));
 //
@@ -308,7 +308,7 @@ class OrderReportsController extends AppController {
         $cnd = '';
         $this->Order->virtualFields = array(
             'total_order' => 'ifnull(sum(Order.total_amount),0)',
-            'total_cum' => 'sum((Order.total_amount*Usersetting.bill_rate)/100)'
+            'total_cum' => 'sum((Order.total_amount*user_settings.bill_rate)/100)'
         );
         if ($grp_id == 4) {
             $conditions = array('OR' => array('Restaurant.user_id' => $user_id));
@@ -340,7 +340,7 @@ class OrderReportsController extends AppController {
             if (!empty($this->request->data['Search']['famt']) && !empty($this->request->data['Search']['lamt'])) {
                 $cnd = 'Having Order__total_order BETWEEN ' . $this->request->data['Search']['famt'] . ' and ' . $this->request->data['Search']['lamt'];
 //                $conditions[] = array('OR' => array('Order.total_order BETWEEN ? and ?' => array($this->request->data['Search']['famt'], $this->request->data['Search']['lamt'])));
-//                $this->paginate['group']=array('sum((Order.total_amount*Usersetting.bill_rate)/100)');
+//                $this->paginate['group']=array('sum((Order.total_amount*user_settings.bill_rate)/100)');
             }
 //            pr($date_Array);
 //            exit();
