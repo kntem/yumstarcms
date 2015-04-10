@@ -1,19 +1,23 @@
 <?php
 
-class GCM {
+class GCM
+{
 
     //put your code here
     // constructor
-    function __construct() {
+    function __construct()
+    {
 
     }
 
     /**
      * Sending Push Notification
      */
-    public function send_notification($registatoin_ids, $message) {
+    public function send_notification($registatoin_ids, $message)
+    {
         // include config
-        include_once './config.php';
+        // include_once './config.php';
+
 
         $GOOGLE_API_KEY = "AIzaSyBrNi9jAP_bq5nxsdtwQKZwE56NK9bKPCs";
 
@@ -46,13 +50,14 @@ class GCM {
 
         // Execute post
         $result = curl_exec($ch);
+
         if ($result === FALSE) {
             die('Curl failed: ' . curl_error($ch));
         }
 
         // Close connection
         curl_close($ch);
-//       echo $result;
+
     }
 
 }

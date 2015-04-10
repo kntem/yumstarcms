@@ -1,31 +1,29 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
- * User: c33
- * Date: 03/09/14
- * Time: 4:12 PM
- * To change this template use File | Settings | File Templates.
+ * Updated by Bhargavi Kacha.
+ * User: c107
+ * Date: 03/20/15
+ * Time: 10:41 AM
+ * This is the config file for the web servcies access.
  */
 
 
-date_default_timezone_set('UTC');
-define("DATABASE_SERVER", "192.168.1.201");
-define("DATABASE_USER", "FoodOrder");
-define("DATABASE_PASSWORD", "P6z8BD35ZCMQ79F");
-define("DATABASE_NAME", "FoodOrder");
-$server = "192.168.1.201";
-$user = "FoodOrder";
-$password = "P6z8BD35ZCMQ79F";
 
-$dbname = 'FoodOrder';
+date_default_timezone_set('UTC');
+define("DATABASE_SERVER", "192.186.249.233");
+define("DATABASE_USER", "Narola");
+define("DATABASE_PASSWORD", "narola123");
+define("DATABASE_NAME", "Foodorder");
+
 $con = "";
-$con = mysql_connect($server, $user, $password);
+$con = mysql_connect(DATABASE_SERVER, DATABASE_USER, DATABASE_PASSWORD);
 
 mysql_set_charset('utf8', $con);
 
 error_reporting(E_ERROR | E_PARSE);
 
-if (!$con) {
+if (!$con) 
+{
     die('Database does not connect: ' . mysql_error());
 }
 else {

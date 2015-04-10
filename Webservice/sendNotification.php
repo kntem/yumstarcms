@@ -1,5 +1,5 @@
 <?php
-    if (isset($_GET["regId"]) && isset($_GET["message"])) {
+if (isset($_GET["regId"]) && isset($_GET["message"])) {
     $regId = $_GET["regId"];
     $message = $_GET["message"];
 

@@ -1,17 +1,20 @@
 <?php
 
 include("dbConfig.php");
+
 $obj = new genFunction(true);
 $paramArray = $obj->getRestArray();
 $return_arr = array();
 $obj->uploadImage("suggested_image");
+$curDate = getDefaultDate();
 $paramArray = $obj->getRestArray();
-mysql_query("INSERT INTO suggestions( item_id, user_id, suggested_image, suggested_comment)
- VALUES(" . $paramArray['item_id'] . "," . $paramArray['user_id'] . ",'" . $paramArray['suggested_image'] . "','"
-                . $paramArray['suggested_comment'] . "')", $con) or die(mysql_error());
+
+mysql_query("INSERT INTO suggestions( item_id, user_id, suggested_image, suggested_comment, post_time)
+ VALUES(" . $paramArray['item_id'] . "," . $paramArray['user_id'] . ",'" . $paramArray['suggested_image'] . "',
+ '" . $paramArray['suggested_comment'] . "', '" . $curDate . "'  )", $con) or die(mysql_error());
 
 mysql_query("update order_items set is_suggested=1 where `item_id`=" . $paramArray['item_id']
-                . " and `order_id`=" . $paramArray['order_id'], $con) or die(mysql_error());
+    . " and `order_id`=" . $paramArray['order_id'], $con) or die(mysql_error());
 
 $return_arr['status'] = "true";
 $return_arr['code'] = "P008";
@@ -23,11 +26,13 @@ echo json_encode($return_arr);
 
 <?php
 
-class genFunction {
+class genFunction
+{
 
     private $getRestAPI = array();
 
-    function __construct($Method = false) { // $Method must be true if using post
+    function __construct($Method = false)
+    { // $Method must be true if using post
         if ($Method === false) {
 
             if (isset($_GET) && is_array($_GET)) {
@@ -44,18 +49,20 @@ class genFunction {
         }
     }
 
-    public function getRestArray() {
+    public function getRestArray()
+    {
         return $this->getRestAPI;
     }
 
-    function uploadImage($KeyName) {
+    function uploadImage($KeyName)
+    {
         if (empty($this->getRestAPI[$KeyName]) == false) {
             $imageKeyName = $this->getRestAPI[$KeyName];
             $ext = "png";
             $image = base64_decode($imageKeyName);
             $pic = md5(microtime()) . "." . $ext;
             $img = imagecreatefromstring($image);
-            $img_path = "../CMS/app/webroot//suggestion_images/" . $pic;
+            $img_path = "../CMS/app/webroot/suggestion_images/" . $pic;
             if ($img !== false) {
                 imagepng($img, $img_path);
             }
@@ -67,4 +74,5 @@ class genFunction {
     }
 
 }
+
 ?>

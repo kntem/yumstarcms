@@ -1,18 +1,32 @@
 <?php
 include("dbConfig.php");
 $obj = new genFunction(true);
+
 $paramArray = $obj->getRestArray();
-$return_arr = array();
 
-mysql_query("update users set privacy=" . $paramArray['privacy'] . " where id=" . $paramArray['userID'], $con) or die(mysql_error());
 
-$return_arr['status'] = "true";
-$return_arr['code'] = "P011";
-$return_arr['msg'] = "privacy updated.";
-$return_arr['Post'] = array();
-echo json_encode($return_arr);
+
+
+$isfollow = mysql_query("select is_follow from `users_friends_mappings` um where um.user_id=" . $paramArray['currentId'] . " and um.friend_id=" . $paramArray['userID'], $con) or die(mysql_error());
+if (mysql_num_rows($isfollow) > 0) {
+    while ($row = mysql_fetch_array($isfollow)) {
+
+        $row_array['is_follow'] = $row['is_follow'];
+    }
+    $arr['status'] = "true";
+    $arr['code'] = "P026";
+    $arr['msg'] = "data found";
+    $arr['Post'][0] = $row_array;
+    echo json_encode($arr);
+} else {
+    $arr['status'] = "false";
+    $arr['code'] = "P027";
+    $arr['msg'] = "data not found";
+
+    $arr['Post'][0] = $row_array;
+    echo json_encode($arr);
+}
 ?>
-
 <?php
 
 class genFunction
