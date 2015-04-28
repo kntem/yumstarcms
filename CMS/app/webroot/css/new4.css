@@ -775,7 +775,7 @@ html,body {
 }
 
 .all-wrapper {
-    background-color: #00999b;
+    background-color: #26282a;
     /*height: 100%;*/
 }
 
@@ -893,7 +893,7 @@ html,body {
 }
 
 .sub-sidebar-wrapper ul li {
-    border-bottom: 1px solid #017778 !important;
+    border-bottom: 1px solid #4b4c4e !important;
 }
 
 .sub-sidebar-wrapper ul li a {
@@ -916,10 +916,12 @@ html,body {
 .sub-sidebar-wrapper ul li:hover a,.sub-sidebar-wrapper ul li.current a,.sub-sidebar-wrapper ul li.active a {
     text-decoration: none;
     background-color: transparent;
+    color: #dc3b3c;
 }
 
 .sub-sidebar-wrapper ul li:hover a:before,.sub-sidebar-wrapper ul li.current a:before,.sub-sidebar-wrapper ul li.active a:before {
-    content: "\f111";
+    //content: "\f111";
+    background-color: transparent;
     font-family: FontAwesome;
     position: absolute;
     color: #F4DE4B;
@@ -1136,7 +1138,7 @@ html,body {
 }
 
 .top-page-header {
-    background-color: #383c3f;
+    background-color: #dc3b3c;
     color: #fff;
     position: relative;
     position: fixed;
@@ -1182,16 +1184,16 @@ html,body {
 
 .top-page-header .menu-toggler {
     float: left;
-    padding-left: 20px;
+    padding-left: 10px;
     font-size: 24px;
     color: #888;
     text-shadow: 0px 1px 1px #000;
     line-height: 50px;
-    border-right: 1px solid #202224;
+//    border-right: 1px solid #202224;
     -webkit-box-shadow: 1px 0px 0px 0px rgba(255,255,255,0.05);
     -moz-box-shadow: 1px 0px 0px 0px rgba(255,255,255,0.05);
     box-shadow: 1px 0px 0px 0px rgba(255,255,255,0.05);
-    padding-right: 20px;
+    padding-right: 10px;
 }
 
 .top-page-header .menu-toggler:hover {
@@ -1309,18 +1311,19 @@ html,body {
 }
 
 .top-page-header .header-links a.header-link {
-    color: #9BA7B2;
+    color: #FFFFFF;
     display: block;
     padding: 10px 15px;
     line-height: 30px;
     margin: 0px 5px;
-    border-left: 1px solid #202224;
+    border-left: 1px solid #B04D4D;
     font-weight: 300;
     font-size: 14px;
 }
 
 .top-page-header .header-links a.header-link:hover {
     text-decoration: none;
+    color: #56413E;
 }
 
 .top-page-header .header-links a.header-link:hover i {
@@ -2408,10 +2411,10 @@ table .checkbox {
 }
 
 .top-page-header {
-    background-image: -webkit-gradient(linear, left 0%, left 100%, from(#383c3f), to(#202224));
-    background-image: -webkit-linear-gradient(top, #383c3f, 0%, #202224, 100%);
-    background-image: -moz-linear-gradient(top, #383c3f 0%, #202224 100%);
-    background-image: linear-gradient(to bottom, #383c3f 0%, #202224 100%);
+    background-image: -webkit-gradient(linear, left 0%, left 100%, from(#D84949), to(#dc3b3c));
+    background-image: -webkit-linear-gradient(top, #D84949, 0%, #dc3b3c, 100%);
+    background-image: -moz-linear-gradient(top, #D84949 0%, #dc3b3c 100%);
+    background-image: linear-gradient(to bottom, #D84949 0%, #dc3b3c 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff383c3f', endColorstr='#ff202224', GradientType=0);
     -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255,255,255,0.1),4px 0px 15px 0px rgba(0,0,0,0.3);
