@@ -29,6 +29,8 @@
               </ul>
             </div>-->
     </div>
-    <a href="#" class="menu-toggler"><img src="/img/yumstar-logo-icon.png" alt="logo" style="margin-bottom: 8px;"></a>
-    <img src="/img/yumstar-logo-letters.png" alt="Yumstar" style="margin-top: 8px;">
+    <a href="#" class="menu-toggler">
+    <? echo $this->Html->image("yumstar-logo-icon.png", array('style' => 'margin-bottom: 8px', 'alt' => 'logo')); ?>
+    </a>
+    <? echo $this->Html->image("yumstar-logo-letters.png", array('style' => 'margin-top: 8px', 'alt' => 'Yumstar')); ?>
 </div>

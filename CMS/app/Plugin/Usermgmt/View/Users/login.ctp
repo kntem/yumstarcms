@@ -37,7 +37,8 @@
             </div>
             <div class="widget-content">
                 <center>
-                    <img class="profile-img" src="/img/yumstar-logo-small.png" alt="" style="height:120px">
+                    <? echo $this->Html->image('yumstar-logo-small.png',
+                                                array('class' => 'profile-img', 'alt' => 'Yumstar', 'style' => 'height:120px')); ?>
                 </center>
 
                 <?php echo $this->Session->flash(); ?>
