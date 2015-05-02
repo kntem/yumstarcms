@@ -149,21 +149,92 @@
                               </div></div>-->
 
 
+<?
+
+$categories = array();
+
+//Create tree-like structure for categories and items
+foreach ($category as $key=>$cat){
+
+    //Insert category
+
+    if (array_key_exists($cat['Category']['parent_id'], $categories)){
+        //Parent category exists already, insert subcategory
+        $parent_id = $cat['Category']['parent_id'];
+        $sub_id = $cat['Category']['id'];
+        $categories[$parent_id]['subcategories'][$sub_id] = $cat['Category'];
+
+        if (!empty($cat['Item'])){
+            //Insert items of subcategory
+            $categories[$parent_id]['subcategories'][$sub_id]['items'] = $cat['Item'];
+        }
+    }
+    else if (!array_key_exists($cat['Category']['id'], $categories)){
+        //Insert parent category
+        $categories[$cat['Category']['id']] = $cat['Category'];
+
+        if (!empty($cat['Item'])){
+            $categories[$cat['Category']['id']]['items'] = $cat['Item'];
+        }
+    }
+}
+
+$restaurant_name = $category[0]['Restaurant']['name'];
+$restaurant_image= $category[0]['Restaurant']['image'];
+$restaurant_address = $category[0]['Restaurant']['address'];
+$restaurant_area = $category[0]['Restaurant']['area'];
+$restaurant_city = $category[0]['Restaurant']['city'];
+$restaurant_email = $category[0]['Restaurant']['email'];
+$restaurant_number = $category[0]['Restaurant']['contact_no'];
+
+?>
+<div class="clearfix"></div>
+
+<ul class="breadcrumb">
+  <li><a href="#">Restaurant</a> <span class="divider">/</span></li>
+  <li><a href="#"><? echo $restaurant_name ?></a> <span class="divider">/</span></li>
+  <li class="active">view menu</li>
+</ul>
+<?
+    if ($restaurant_image == NULL)
+        $restaurant_path = SITE_URL . "restaurant_images/place_holder_squre.png";
+    else
+        $restaurant_path = SITE_URL . "restaurant_images/" . $restaurant_image;
+?>
+<div class="row">
+    <div class="span2">
+<?
+echo $this->Html->image($restaurant_path, array('class' => 'img-polaroid',
+                                                'style' =>'height: 120px;
+                                                           float: left;
+                                                           margin: 5px;'));
+?>
+    </div>
+    <div class="span4">
+        <address style="margin-top:35px;">
+            <strong><? echo $restaurant_name ?></strong><br>
+            <? echo $restaurant_address ?>, <? echo $restaurant_area ?><br>
+            <? echo $restaurant_city?><br>
+            <abbr title="Phone">phone:</abbr> <? echo $restaurant_number ?><br>
+            <a href="mailto:<? echo $restaurant_number ?>"><? echo $restaurant_email ?></a>
+        </address>
+    </div>
+</div>
+
+<div class="clearfix"></div>
 
 <div class="accordion" id="accordion2">
-<? foreach ($category as $key=>$cats) { ?>
+<? foreach ($categories as $key=>$cat) { ?>
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<? echo $key;?>">
                 <h3>
-                <? if ($cats['Category']['icon'] == NULL)
+                <? if ($cat['icon'] == NULL)
                        $icon_path = SITE_URL . "category_images/place_holder_squre.png";
                    else
-                        $icon_path = SITE_URL . "category_images/" . $cats['Category']['icon'];
+                        $icon_path = SITE_URL . "category_images/" . $cat['icon'];
                    echo $this->Html->image($icon_path,
-                                          array('width' => '40',
-                                                'height' => '40',
-                                                'class' => 'img-circle',
+                                          array('class' => 'img-circle',
                                                 'style' =>'height: 40px;
                                                            width: 40px;
                                                            float: left;
@@ -171,178 +242,69 @@
                 ?>
                     <!-- <img src="http://localhost/category_images/4_drinks.jpg"
                          class="img-circle" style="height: 40px; width: 40px; float: left; margin-right: 5px;"> -->
-                       <?php echo $cats['Category']['name']; ?>
+                       <?php echo $cat['name']; ?>
                 </h3>
             </a>
         </div>
         <div id="collapse<? echo $key;?>" class="accordion-body collapse">
             <div class="accordion-inner">
                 <blockquote>
-                    <p><?php echo $cats['Category']['description']; ?></p>
+                    <p><?php echo $cat['description']; ?></p>
                 </blockquote>
-                <table class="table table-hover">
-                    <tr>
-                        <td>Item Name</td>
-                        <td>Description</td>
-                        <td>Price</td>
-                        <td>View gallery</td>
-                    </tr>
-                        <? foreach ($restaurant['Item'] as $items) {
-                            if ($items['category_id'] == $cats['Category']['id']) {
-                        ?>
-                    <tr>
-                        <td><?php echo $items['name']; ?></td>
-                        <td><?php echo $items['description']; ?></td>
-                        <td><?php echo $this->Number->currency($items['price'], 'EUR'); ?></td>
-                        <td><? echo $this->Html->link("View Gallery ", '/Suggestions/index/' . $items['id'], array('escape' => false, 'title' => 'Edit')); ?></td>
-                    </tr>
-                    <? }} ?>
-                </table>
+                
+                <? if (!(count($cat['subcategories']) == 0)){ ?>
+                    <div class="accordion" id="accordion3">
+                        <? foreach ($cat['subcategories'] as $id => $sub) { ?>
+
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapse<? echo $id; ?>">
+                                    <h4><?
+                                        if ($sub['icon'] == NULL)
+                                            $icon_path = SITE_URL . "category_images/place_holder_squre.png";
+                                        else
+                                            $icon_path = SITE_URL . "category_images/" . $sub['icon'];
+                                            echo $this->Html->image($icon_path,
+                                                                    array('class' => 'img-circle',
+                                                                          'style' =>'height: 20px;
+                                                                                     width: 20px;
+                                                                                     float: left;
+                                                                                     margin-right: 5px;'));
+                ?>
+                                    <? echo $sub['name']; ?></h4>
+                                </a>
+                                
+                            </div>
+                            <div id="collapse<? echo $id; ?>" class="accordion-body collapse in">
+                                <div class="accordion-inner">
+                                    <p><blockquote> <?php echo $sub['description']; ?> </blockquote></p>
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <td><b>Item Name</b></td>
+                                            <td><b>Description</b></td>
+                                            <td><b>Price</b></td>
+                                            <td></td>
+                                        </tr>
+                                            <? foreach ($sub['items'] as $item) { ?>
+                                        <tr>
+                                            <td><?php echo $item['name']; ?></td>
+                                            <td><?php echo $item['description']; ?></td>
+                                            <td><?php echo $this->Number->currency($item['price'], 'EUR'); ?></td>
+                                            <td><? echo $this->Html->link("View Gallery ", '/Suggestions/index/' . $item['id'], array('escape' => false, 'title' => 'Edit')); ?></td>
+                                        </tr>
+                                        <? } ?>
+                                  </table>
+                                </div>
+                            </div>
+                        </div>
+                        <? } ?>
+                    </div>
+                <? } ?>
+
+
+
             </div>
         </div>
     </div>
 <? } ?>
-</div>
-
-
-
-<div class="clearfix"></div>
-<div class="clearfix"></div>
-<div class="widget widget-blue">
-    <div class="widget-title">
-
-        <h3><i class="icon-table"></i> OrderItems</h3>
-    </div>
-    <div class="widget-content">
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover" id="orderItem_list">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Category Name</th>
-                        <th>Item Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Icon</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    if (!empty($restaurant)) {
-                    if (!empty($category)) {
-
-
-                        foreach ($category as $cats) {
-//                                 pr($cats);
-//                                $item_id = $orderItem['OrderItem']['item_id'];
-//                            App::import("Controller", "Categories");  // load model category
-//                            $Category = new CategoriesController();
-//                            $Category_list = $Category->get_category($item_id); // here check_if_holiday is a method inside PublicHoliday Model
-                            ?>
-                            <tr>
-
-                                <td><?php echo $cats['Category']['id']; ?></td>
-                                <td><?php echo $cats['Category']['name']; ?></td>
-                                <td></td>
-                                <td><?php echo $cats['Category']['description']; ?></td>
-                                <td></td>
-
-                                <td><?php
-                                    if ($cats['Category']['icon'] == NULL) {
-                                        $icon_path = SITE_URL . "category_images/place_holder_squre.png";
-                                        echo $this->Html->link($this->Html->image($icon_path, array('width' => '50',
-                                                                                                    'height' => '50')),
-                                                               $icon_path,
-                                                               array('class' => 'fancybox',
-                                                                     'escape' => false,
-                                                                     'data-fancybox-group' => 'button'));
-                                    } else {
-                                        $icon_path = SITE_URL . "category_images/" . $cats['Category']['icon'];
-                                        echo $this->Html->link($this->Html->image($icon_path, array('width' => '50', 
-                                                                                                    'height' => '50')),
-                                                               $icon_path,
-                                                               array('class' => 'fancybox',
-                                                                     'escape' => false, 
-                                                                     'data-fancybox-group' => 'button'));
-                                    }
-                                    ?></td>
-                            </tr>
-        <?php
-        if (!empty($restaurant['Item'])) {
-
-            foreach ($restaurant['Item'] as $items) {
-//                            pr($items);
-                if ($items['category_id'] == $cats['Category']['id']) {
-                    ?>   <tr>
-
-                                            <td><?php echo $items['id']; ?></td>
-                                            <td></td>
-                                            <td><?php echo $items['name']; ?></td>
-                                            <td><?php echo $items['description']; ?></td>
-                                            <td><?php echo $this->Number->currency($items['price'], 'EUR'); ?></td>
-
-                                            <td>  <?php
-                                        echo $this->Html->link("View Gallery ", '/Suggestions/index/' . $items['id'], array('escape' => false, 'title' => 'Edit', 'class' => 'btn btn-primary btn-xs'));
-                                    ?></td>
-
-
-
-                                        </tr>
-                    <?php
-                }
-            }
-        }
-        ?>
-                    <?php
-                }
-                    } }else {
-                ?>
-                        <tr><td colspan="6" class="fc-header-center">No Data Found</td></tr>
-            <?php } ?>
-
-                </tbody>
-            </table>
-
-        </div>
-    </div>
-    <div class="pagination_outer pagination pagination-right pagination-mini" id="tablePagination">
-        <div id="tablePagination_perPage">
-        <?php
-            if (isset($this->params->query['limit'])) {
-                $limit = $this->params->query['limit'];
-//            echo "Limit : ".$limit;
-            }
-            else {
-                $limit = 5;
-            }
-            $options = array('5' => 5, '10' => 10, '20' => 20);
-
-            echo $this->Form->create(array('type' => 'get'));
-
-            echo $this->Form->select('limit', $options, array(
-                                     'value' => $limit,
-                                     'default' => $limit,
-                                     'onChange' => 'this.form.submit();',
-                                     'name' => 'limit',
-                                     'id' => 'tablePagination_rowsPerPage',
-                                     'class' => 'per_page span2',
-                                     'style'     => 'width:auto'
-                                     )
-                                    );
-            echo $this->Form->end();
-            ?>
-            <span class="per_page">per page</span>
-        </div>
-        <div>
-            <ul id="tablePagination_paginater">
-                <li>  <?php echo $this->paginator->first('|< first'); ?> </li>
-                <li>  <?php echo $this->paginator->prev('<< prev', null, null, array('class' => 'prev disabled')); ?> </li>
-                <li>  <?php echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active', 'currentTag' => 'a', 'escape' => false)); ?> </li>
-                <li>  <?php echo $this->paginator->next('next >>', null, null, array('class' => 'next disabled')); ?> </li>
-                <li>  <?php echo $this->paginator->last('last >|'); ?> </li>
-                <li class="no_of_page"><?php echo $this->Paginator->counter(); ?></li>
-            </ul>
-        </div>
-    </div>
 </div>
