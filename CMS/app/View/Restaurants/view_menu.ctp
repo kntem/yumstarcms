@@ -177,6 +177,12 @@ foreach ($category as $key=>$cat){
             $categories[$cat['Category']['id']]['items'] = $cat['Item'];
         }
     }
+
+    foreach ($cat['sub_category'] as $key=>$sub){
+        $parent_id = $sub['parent_id'];
+        $sub_id = $sub['id'];
+        $categories[$parent_id]['subcategories'][$sub_id] = $sub;
+    }
 }
 
 $restaurant_name = $category[0]['Restaurant']['name'];
