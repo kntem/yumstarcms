@@ -67,7 +67,7 @@ if (!empty($getPermissions)) {
             </div>
         <div class="span8">
             <? if ($adduser == 1) { ?>
-                <a href='/addUser'><button class="btn btn-success"><i class="icon-user icon-white"></i> Add User</button></a>
+                <a href='<? echo SITE_URL; ?>addUser'><button class="btn btn-success"><i class="icon-user icon-white"></i> Add User</button></a>
             <? } ?>
         </div>
     </div>
