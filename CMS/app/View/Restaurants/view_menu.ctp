@@ -191,8 +191,8 @@ $restaurant_number = $category[0]['Restaurant']['contact_no'];
 <div class="clearfix"></div>
 
 <ul class="breadcrumb">
-  <li><a href="#">Restaurant</a> <span class="divider">/</span></li>
-  <li><a href="#"><? echo $restaurant_name ?></a> <span class="divider">/</span></li>
+  <li><a href="<? echo SITE_URL . "restaurants" ?>">Restaurants</a> <span class="divider">/</span></li>
+  <li class="active"><? echo $restaurant_name ?> <span class="divider">/</span></li>
   <li class="active">view menu</li>
 </ul>
 <?
@@ -252,7 +252,7 @@ echo $this->Html->image($restaurant_path, array('class' => 'img-polaroid',
                     <p><?php echo $cat['description']; ?></p>
                 </blockquote>
                 
-                <? if (!(count($cat['subcategories']) == 0)){ ?>
+                <? if ( array_key_exists('subcategories', $cat) and (!(count($cat['subcategories']) == 0))){ ?>
                     <div class="accordion" id="accordion3">
                         <? foreach ($cat['subcategories'] as $id => $sub) { ?>
 
