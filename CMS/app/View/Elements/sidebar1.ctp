@@ -50,13 +50,13 @@ if (!empty($getPermissions)) {
             <?php } ?>
             <!--<li class="<?php echo (!empty($activeord)) ? $activeord : ''; ?>"><?php echo $this->Html->link('History', '/orders', array('title' => 'Orders')); ?></li>-->
             <?php if ($category == 1) { ?>
-                <li class="<?php echo (!empty($active)) ? $active : ''; ?>"><?php echo $this->Html->link('Categories', '/categories', array('title' => 'Categories')); ?></li>
-            <?php } if ($item == 1) { ?>
-                <li class="<?php echo (!empty($activeitem)) ? $activeitem : ''; ?>"><?php echo $this->Html->link('Items', '/items', array('title' => 'Items')); ?></li>
-            <?php } if ($grp != 5) { ?>
+<!--                 <li class="<?php echo (!empty($active)) ? $active : ''; ?>"><?php echo $this->Html->link('Categories', '/categories', array('title' => 'Categories')); ?></li>
+ -->            <?php } if ($item == 1) { ?>
+<!--                 <li class="<?php echo (!empty($activeitem)) ? $activeitem : ''; ?>"><?php echo $this->Html->link('Items', '/items', array('title' => 'Items')); ?></li>
+ -->            <?php } if ($grp != 5) { ?>
                 <li class="<?php echo (!empty($activeusr)) ? $activeusr : ''; ?>"><?php echo $this->Html->link('Users', '/dashboard', array('title' => 'Users')); ?></li>
             <?php } if ($restaurant == 1) { ?>
-                <li class="<?php echo (!empty($activeres)) ? $activeres : ''; ?>"><?php echo $this->Html->link('Restaurants', '/restaurants', array('title' => 'Restaurants')); ?></li>
+                <li class="<?php echo (!empty($activeres)) ? $activeres : ''; ?>"><?php echo $this->Html->link('Businesses', '/restaurants', array('title' => 'Businesses')); ?></li>
             <?php } ?>
 
             <?php if ($grp == 1) { ?>
