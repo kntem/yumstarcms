@@ -99,17 +99,15 @@
 
 <div style="margin-bottom: 20px;">
     <!--<button type="button" class="btn btn-primary">Add Restaurant</button>-->
-<?php echo $this->Form->create('Search', array('class' => 'form-inline', 'id' => 'restaurant_search')); ?>
+
     <div class="row">
-        <div class="col-xs-7 col-md-6">
-            <div class="form-group col-xs-9">
-            <?php echo $this->Form->input('Search.name', array('type' => 'text', 'class' => 'form-control', 'label' => false, 'placeholder' => 'Restaurant Name')); ?>
-            </div>
+        <div class="span4">
+            <?php echo $this->Form->create('Search', array('class' => 'form-inline', 'id' => 'restaurant_search')); ?>
+            <?php echo $this->Form->input('Search.name', array('type' => 'text', 'label' => false, 'div' => false, 'placeholder' => 'Business Name')); ?>
             <?php echo $this->Form->button('Search', array('type' => 'submit', 'class' => 'btn btn-success', 'id' => 'search')); ?>
             <?php
             if (isset($flag)) {
                 if ($flag == 'true') {
-
                     echo $this->Html->link('View All', '/restaurants', array('class' => 'btn btn-primary'));
                 }
             }
@@ -117,8 +115,8 @@
             ?>
         </div>
 
-        <div class="col-xs-5 col-md-6 text-right">
-<?php echo $this->Html->link('Add New', '/restaurants/add', array('class' => 'btn btn-primary')); ?>
+        <div class="offset1 span4  text-right">
+<?php echo $this->Html->link('Add New', '/restaurants/add', array('class' => 'btn btn-primary', 'style' =>'margin-right:5px;')); ?>
 <?php echo $this->Form->button('Delete Selected', array('class' => 'btn btn-danger', 'id' => 'restaurant_delete'), __('are u delete?')); ?>
 
         </div>
@@ -126,7 +124,7 @@
 </div>
 <div class="widget widget-blue">
     <div class="widget-title">
-        <h3><i class="icon-table"></i> Restaurant </h3>
+        <h3><i class="icon-table"></i> Businesses </h3>
     </div>
     <div class="widget-content">
         <div class="table-responsive">
@@ -134,15 +132,15 @@
                 <thead>
                 <tr>
                     <th><div class="checkbox"><?php echo $this->Form->checkbox('select_all', array('id' => 'restaurant_select_all')); ?></div></th>
-                    <th>ID</th>
+                    <th style="min-width:25px;">ID</th>
                     <th>Name</th>
                     <th>Address</th>
                     <th>Area</th>
                     <th>City</th>
                     <th>Email</th>
-                    <th>Contact_no</th>
+                    <th>Phone</th>
                     <th>Image</th>
-                    <th></th>
+                    <th style="min-width: 64px;"></th>
                 </tr>
                 </thead>
                 <tbody>
