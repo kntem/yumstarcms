@@ -8,7 +8,7 @@
             </div>-->
         <div class="dropdown ">
             <!--      <a class="header-link" data-toggle="dropdown" href="#"><i class="icon-cog"></i> Settings</a>-->
-            <div style="float:right;padding-left:10px"><?php echo $this->Html->link(__("Sign Out",true),"/logout",array('class'=>'header-link')) ?></div>
+            <div style="float:right;padding-left:10px; height:20px;"><?php echo $this->Html->link(__("Sign Out",true),"/logout",array('class'=>'header-link')) ?></div>
         </div>
         <!--
             <div class="dropdown">
@@ -30,7 +30,7 @@
             </div>-->
     </div>
     <a href="#" class="menu-toggler">
-    <? echo $this->Html->image("yumstar-logo-icon.png", array('style' => 'margin-bottom: 8px', 'alt' => 'logo')); ?>
+    <? echo $this->Html->image("yumstar-logo-icon.png", array('style' => 'margin-bottom: 15px; height: 30px;', 'alt' => 'logo')); ?>
     </a>
-    <? echo $this->Html->image("yumstar-logo-letters.png", array('style' => 'margin-top: 8px', 'alt' => 'Yumstar')); ?>
+    <? echo $this->Html->image("yumstar-logo-letters.png", array('style' => 'margin-top: 4px;  height: 30px;', 'alt' => 'Yumstar')); ?>
 </div>
